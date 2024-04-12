@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+  <title>Anubhav - Aprill fool </title>
+
+    <link rel="canonical" href="https://codepen.io/ajay2507/pen/vmKXEb">
+  
+<style>
+html, body {
+  background: lightblue;
+  overflow: hidden;
+  font-size:16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-moz-selection {
+  background: transparent;
+}
+
+::selection {
+  background: transparent;
+}
+
+* {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+*:focus, *:active {
+  outline: 0;
+}
+
+.clickme{
+  color: white;
+  top: 5rem;
+  left: 5rem;
+  padding: 1rem 1rem;
+  border: 0;
+  border-radius: 1px;
+  background-color:green;
+  text-align:center;
+  margin:0 auto;
+  position: relative;
+}
+
+.buttoncontainer {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 80%;
+  height: 80%;
+  font-size: 1.3em;
+  -webkit-transition: top 150ms, left 150ms ease-in-out;
+  transition: top 150ms, left 150ms ease-in-out;
+ 
+}
+button.unclickable:hover {
+  cursor: pointer;
+  background: -webkit-linear-gradient(#404040, #333);
+  background: linear-gradient(#404040, #333);
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <!-- Panjiva Challenge -->
+<!-- April Fool Challenge -->
+<div class="buttoncontainer">
+<button type='button' class='clickme'>
+  Try and click me!
+</button>
+</div>
+  
+      <script id="rendered-js" >
+'use strict';
+
+// Panjiva challenge to move the button.
+var buttoncontainer = document.querySelector('.buttoncontainer');
+var clickme = document.querySelector('.clickme');
+//alert(clickme);
+var leniency = 200;
+
+// Move the button father across page.
+function moveButton() {
+  var randomX = Math.floor(Math.random() * (clickme.style.innerWidth - leniency));
+  var randomY = Math.floor(Math.random() * (clickme.style.innerHeight - leniency));
+  clickme.style.top = randomY + 'px';
+  //console.log(this.style.top);
+  //console.log(this.style.left);
+}
+
+//move Button container little bit
+
+function moveButtonContainer() {
+  var randomX = Math.floor(Math.random() * (innerWidth - leniency - 20));
+  var randomY = Math.floor(Math.random() * (innerHeight - leniency - 20));
+  buttoncontainer.style.top = randomY + 'px';
+  buttoncontainer.style.left = randomX + 'px';
+  // console.log(this.style.top);
+  // alert(randomX+"  "+randomY);
+
+  //console.log(this.style.left);
+}
+
+// move the button.
+var _arr = ['mouseover', 'mousemove'];
+for (var _i = 0; _i < _arr.length; _i++) {if (window.CP.shouldStopExecution(0)) break;if (window.CP.shouldStopExecution(1)) {break;}
+  var eventName = _arr[_i];
+  clickme.addEventListener(eventName, moveButton);
+  buttoncontainer.addEventListener(eventName, moveButtonContainer);
+}window.CP.exitedLoop(0);
+window.CP.exitedLoop(1);
+
+
+//clicked the button
+clickme.addEventListener('click', function () {
+  alert('You clicked the button. you are not fooled.');
+});
+
+// Disable right-click, because you can use the menu that appears
+// as a bridge.
+/* document.addEventListener('contextmenu', function (event) {
+  return event.preventDefault();
+});  */
+//# sourceURL=pen.js
+    </script>
+
+  
+</body>
+
+</html>
